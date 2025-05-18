@@ -10,6 +10,16 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
+
+                    @if(Auth::user()->is_admin)
+                        <div class="mt-6">
+                            <h3 class="text-lg font-semibold mb-2">Admin Panel</h3>
+                            <div class="space-y-2">
+                                <a href="{{ route('admin.skills.index') }}" class="text-blue-500 hover:underline block">Manage Skills</a>
+                                <a href="{{ route('admin.experts.index') }}" class="text-blue-500 hover:underline block">Manage Experts</a>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
